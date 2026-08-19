@@ -1,11 +1,34 @@
 import React from 'react';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { StyleSheet, View } from 'react-native';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+import { Text } from 'react-native-paper';
 import TemperatureScreen from './screens/TemperatureScreen';
 
 export default function App() {
   return (
     <SafeAreaProvider>
-      <TemperatureScreen />
+      <SafeAreaView style={styles.container} edges={['top', 'bottom']}>
+        <Text variant="titleLarge" style={styles.headerTitle}>
+          Convertidor
+        </Text>
+        <TemperatureScreen />
+      </SafeAreaView>
     </SafeAreaProvider>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#d2c9a7',
+  },
+  headerTitle: {
+    paddingTop: 10,
+    paddingBottom: 8,
+    paddingHorizontal: 16,
+    textAlign: 'center',
+    color: '#ffffff',
+    fontWeight: '700',
+    backgroundColor: '#0d4f11',
+  },
+});
